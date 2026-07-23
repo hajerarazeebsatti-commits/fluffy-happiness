@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Crumb Bakery | Freshly Baked Daily</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Sweet Crumb</h1>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Our Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="cart-btn" id="cart-btn">
+                    🛒 Cart (<span id="cart-count">0</span>)
+                </button>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Freshly Baked, Made with Love</h2>
+            <p>Experience the finest artisan breads, pastries, and cakes baked fresh every morning.</p>
+            <a href="#menu" class="btn-primary">View Our Menu</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <h2 class="section-title">Our Delicious Treats</h2>
+        <p class="section-subtitle">Handcrafted daily using traditional recipes and the finest ingredients.</p>
+        
+        <div class="menu-grid">
+            <!-- Item 1 -->
+            <div class="menu-item">
+                <img src="https://placehold.co/400x300/D4A373/FFF8F0?text=Butter+Croissant" alt="Butter Croissant">
+                <div class="item-info">
+                    <h3>Butter Croissant</h3>
+                    <p>Flaky, golden, and made with pure French butter.</p>
+                    <div class="item-footer">
+                        <span class="price">$3.50</span>
+                        <button class="add-to-cart" data-item="Butter Croissant">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="menu-item">
+                <img src="https://placehold.co/400x300/8B5A2B/FFF8F0?text=Sourdough+Loaf" alt="Sourdough Loaf">
+                <div class="item-info">
+                    <h3>Artisan Sourdough</h3>
+                    <p>Crusty exterior with a soft, tangy interior. Perfect for sandwiches.</p>
+                    <div class="item-footer">
+                        <span class="price">$6.00</span>
+                        <button class="add-to-cart" data-item="Artisan Sourdough">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="menu-item">
+                <img src="https://placehold.co/400x300/5C3A21/FFF8F0?text=Chocolate+Cake" alt="Chocolate Cake">
+                <div class="item-info">
+                    <h3>Dark Chocolate Cake</h3>
+                    <p>Rich, moist layers of dark chocolate ganache and sponge.</p>
+                    <div class="item-footer">
+                        <span class="price">$28.00</span>
+                        <button class="add-to-cart" data-item="Dark Chocolate Cake">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="menu-item">
+                <img src="https://placehold.co/400x300/FFB6C1/FFF8F0?text=Strawberry+Macaron" alt="Macarons">
+                <div class="item-info">
+                    <h3>French Macarons (Box of 6)</h3>
+                    <p>Delicate almond meringue cookies with creamy strawberry filling.</p>
+                    <div class="item-footer">
+                        <span class="price">$15.00</span>
+                        <button class="add-to-cart" data-item="French Macarons">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2 class="section-title">Our Story</h2>
+            <p>Founded in 2015, Sweet Crumb Bakery started as a small family kitchen with a big passion for baking. Today, we continue to wake up before the sun to ensure every loaf, pastry, and cake that leaves our oven meets our high standards of quality and taste. We believe in using organic, locally sourced ingredients because great baking starts with great ingredients.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Sweet Crumb Bakery</h3>
+                <p>Baking happiness, one crumb at a time.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Visit Us</h4>
+                <p>123 Baker Street<br>Flour Town, FT 12345</p>
+                <p>Open Daily: 7:00 AM - 6:00 PM</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>Phone: (555) 123-4567</p>
+                <p>Email: hello@sweetcrumb.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Sweet Crumb Bakery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
