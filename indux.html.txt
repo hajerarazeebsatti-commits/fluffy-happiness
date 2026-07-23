@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Crumb Bakery | Freshly Baked Daily</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS STYLES -->
+    <style>
+        /* --- General Reset & Variables --- */
+        :root {
+            --bg-color: #FFF8F0; /* Warm cream */
+            --primary-color: #D4A373; /* Warm brown/gold */
+            --dark-brown: #3E2723; /* Dark chocolate text */
+            --light-dough: #FAEDCD; /* Light accent */
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--dark-brown);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-brown);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cart-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cart-btn:hover {
+            background: #b5835a;
+        }
+
+        /* Hamburger Menu (Mobile) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark-brown);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(62, 39, 35, 0.6), rgba(62, 39, 35, 0.6)), 
+                        url('https://placehold.co/1200x600/8B5A2B/FFF8F0?text=Fresh+Bakery+Background') center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #b5835a;
+            transform: translateY(-3px);
+        }
+
+        /* --- Menu Section --- */
+        .menu-section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: #6D4C41;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .item-info {
+            padding: 1.5rem;
+            text-align: left;
+        }
+
+        .item-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-info p {
+            color: #6D4C41;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .add-to-cart {
+            background-color: var(--dark-brown);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #5D4037;
+        }
+
+        /* --- About Section --- */
+        .about-section {
+            background-color: var(--light-dough);
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #5D4037;
+            margin-top: 1.5rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--bg-color);
+            padding: 3rem 5% 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-col h3, .footer-col h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #5D4037;
+            padding-top: 1rem;
+            font-size: 0.9rem;
+            color: #BCAAA4;
+        }
+
+        /* --- Responsive Design (Mobile) --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                display: none; /* Hidden by default on mobile */
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Sweet Crumb</h1>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Our Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="cart-btn" id="cart-btn">
+                    🛒 Cart (<span id="cart-count">0</span>)
+                </button>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Freshly Baked, Made with Love</h2>
+            <p>Experience the finest artisan breads, pastries, and cakes baked fresh every morning.</p>
+            <a href="#menu" class="btn-primary">View Our Menu</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <h2 class="section-title">Our Delicious Treats</h2>
+        <p class="section-subtitle">Handcrafted daily using traditional recipes and the finest ingredients.</p>
+        
+        <div class="menu-grid">
+            <!-- Item 1 -->
+            <div class="menu-item">
+                <img src="https://placehold.co/400x300/D4A373/FFF8F0?text=Butter+Croissant" alt="Butter Croissant">
+                <div class="item-info">
+                    <h3>Butter Croissant</h3>
+                    <p>Flaky, golden, and made with pure French butter.</p>
+                    <div class="item-footer">
+                        <span class="price">$3.50</span>
+                        <button class="add-to-cart" data-item="Butter Croissant">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="menu-item">
+                <img src="https://placehold.co/400x300/8B5A2B/FFF8F0?text=Sourdough+Loaf" alt="Sourdough Loaf">
+                <div class="item-info">
+                    <h3>Artisan Sourdough</h3>
+                    <p>Crusty exterior with a soft, tangy interior. Perfect for sandwiches.</p>
+                    <div class="item-footer">
+                        <span class="price">$6.00</span>
+                        <button class="add-to-cart" data-item="Artisan Sourdough">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="menu-item">
+                <img src="https://placehold.co/400x300/5C3A21/FFF8F0?text=Chocolate+Cake" alt="Chocolate Cake">
+                <div class="item-info">
+                    <h3>Dark Chocolate Cake</h3>
+                    <p>Rich, moist layers of dark chocolate ganache and sponge.</p>
+                    <div class="item-footer">
+                        <span class="price">$28.00</span>
+                        <button class="add-to-cart" data-item="Dark Chocolate Cake">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="menu-item">
+                <img src="https://placehold.co/400x300/FFB6C1/FFF8F0?text=Strawberry+Macaron" alt="Macarons">
+                <div class="item-info">
+                    <h3>French Macarons (Box of 6)</h3>
+                    <p>Delicate almond meringue cookies with creamy strawberry filling.</p>
+                    <div class="item-footer">
+                        <span class="price">$15.00</span>
+                        <button class="add-to-cart" data-item="French Macarons">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2 class="section-title">Our Story</h2>
+            <p>Founded in 2015, Sweet Crumb Bakery started as a small family kitchen with a big passion for baking. Today, we continue to wake up before the sun to ensure every loaf, pastry, and cake that leaves our oven meets our high standards of quality and taste. We believe in using organic, locally sourced ingredients because great baking starts with great ingredients.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Sweet Crumb Bakery</h3>
+                <p>Baking happiness, one crumb at a time.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Visit Us</h4>
+                <p>123 Baker Street<br>Flour Town, FT 12345</p>
+                <p>Open Daily: 7:00 AM - 6:00 PM</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>Phone: (555) 123-4567</p>
+                <p>Email: hello@sweetcrumb.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Sweet Crumb Bakery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // --- Mobile Navigation Toggle ---
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Animate hamburger into an 'X'
+            hamburger.classList.toggle('toggle');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // --- Shopping Cart Functionality ---
+        let cartCount = 0;
+        const cartCountDisplay = document.getElementById('cart-count');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const itemName = e.target.getAttribute('data-item');
+                
+                // Increase cart count
+                cartCount++;
+                cartCountDisplay.textContent = cartCount;
+
+                // Visual feedback: Change button text temporarily
+                const originalText = e.target.textContent;
+                e.target.textContent = 'Added! ✓';
+                e.target.style.backgroundColor = '#4CAF50'; // Green
+
+                // Revert button text after 1.5 seconds
+                setTimeout(() => {
+                    e.target.textContent = originalText;
+                    e.target.style.backgroundColor = ''; // Revert to original CSS color
+                }, 1500);
+
+                // Optional: Show a console log 
+                console.log(`Added 1x ${itemName} to cart. Total items: ${cartCount}`);
+            });
+        });
+
+        // --- Cart Button Click ---
+        const cartBtn = document.getElementById('cart-btn');
+        cartBtn.addEventListener('click', () => {
+            if (cartCount === 0) {
+                alert("Your cart is empty. Add some delicious treats!");
+            } else {
+                alert(`You have ${cartCount} item(s) in your cart. Proceeding to checkout...`);
+                // In a real website, this would redirect to a checkout page.
+            }
+        });
+    </script>
+</body>
+</html>
